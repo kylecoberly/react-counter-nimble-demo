@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react"
+import CountDisplay from "./CountDisplay"
+import ButtonAction from "./ButtonAction"
 
 function App() {
+  const [ count, setCount ] = useState(0)
+
+  const handleClick = event => {
+    setCount(count + 1)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello, Nimble!</h1>
+      <CountDisplay count={count} />
+      <ButtonAction label="Increment" actionHandler={handleClick} />
     </div>
   );
 }
